@@ -17,12 +17,16 @@ export async function getSignedUrl({ key, content_type }) {
 export async function uploadFileToSignedUrl(
   signedUrl,
   file,
+  contentType,
   onProgress,
   onComplete
 ) {
   axios
     .put(signedUrl, file, {
       onUploadProgress: onProgress,
+      headers: {
+        "Content-Type": contentType,
+      },
     })
     .then((response) => {
       onComplete(response);

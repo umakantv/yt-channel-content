@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { getSignedUrl, uploadFileToSignedUrl } from "../api";
 
-function getKeyAndContentType(file, prefix = "public/images") {
+function getKeyAndContentType(file, prefix = "images") {
   const [fileName, extension] = file.name.split(".");
 
   // to generate unique key everytime
@@ -29,6 +29,7 @@ export default function useFileUpload(onSuccess, prefix) {
           uploadFileToSignedUrl(
             signedUrl,
             file,
+            content_type,
             (progress) => {
               setUploadProgress((progress.loaded / progress.total) * 100);
             },

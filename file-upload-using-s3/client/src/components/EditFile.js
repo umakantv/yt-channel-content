@@ -22,7 +22,7 @@ function getFileName(link) {
 }
 
 const EditFile = ({ label, inputId, link, accept, onChange }) => {
-  const { uploadFile, uploading } = useFileUpload(onChange, "public/documents");
+  const { uploadFile, uploading } = useFileUpload(onChange, "documents");
 
   const [file, setFile] = useState(null);
 
