@@ -6,7 +6,8 @@ const s3Router = express.Router()
 
 s3Router.post('/signed_url', async (req, res) => {
     try {
-        const {key, content_type} = req.body;
+        let {key, content_type} = req.body;
+        key = 'public/' + key;
         const data = await createPresignedPost({key, contentType: content_type})
     
         return res.send({
