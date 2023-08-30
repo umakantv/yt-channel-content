@@ -19,7 +19,7 @@ Use access keys to send programmatic calls to AWS from AWS SDKs
 https://repost.aws/knowledge-center/read-access-objects-s3-bucket
 
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -40,3 +40,36 @@ Base Path: https://yt-file-upload-tutorial.s3.ap-south-1.amazonaws.com
 key: public/images/og image.png
 Metadata: 
 Content-Type: image/png
+
+
+### Updating CORS policy
+
+
+```json
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "PUT"
+        ],
+        "AllowedOrigins": [
+            "http://localhost:3000"
+        ],
+        "ExposeHeaders": []
+    },
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": []
+    }
+]
+```
