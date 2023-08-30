@@ -1,0 +1,36 @@
+.avatar-editor {
+  position: relative;
+}
+
+.avatar-editor .preview {
+  height: 100px;
+  width: 100px;
+}
+
+.avatar-editor .edit-menu-button {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+}
+
+.avatar-editor .avatar-editor-overlay {
+  border-radius: 50%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.avatar-editor .avatar-editor-overlay {
+  display: flex;
+}
+
+input.edit-file-input {
+  display: none;
+}
