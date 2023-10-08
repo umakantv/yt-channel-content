@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import EditAvatar from "./EditAvatar";
 import { Button, Divider, Stack, TextField, Typography } from "@mui/material";
-import EditFile from "./EditFile";
+import EditAvatar from "../Forms/EditAvatar/EditAvatar";
+import EditFile from "../Forms/EditFile/EditFile";
 
 const EmployeeDetails = ({ employeeData, onSubmit }) => {
   let [employee, setEmployee] = useState(employeeData);
@@ -28,10 +28,12 @@ const EmployeeDetails = ({ employeeData, onSubmit }) => {
           <Stack justifyContent="center" direction="row">
             <EditAvatar
               image={employee.profileImage}
+              name={employee.name}
               inputId={"employe-avatar"}
               onChange={(imageLink) => {
                 onChange("profileImage", imageLink);
               }}
+              prefix={`avatars/${employee.id}`}
             />
           </Stack>
           <TextField
@@ -66,6 +68,7 @@ const EmployeeDetails = ({ employeeData, onSubmit }) => {
             inputId={"employee-document"}
             accept="application/pdf"
             onChange={(fileLink) => onChange("govtIdLink", fileLink)}
+            prefix={`documents/${employee.id}`}
           />
 
           <div>

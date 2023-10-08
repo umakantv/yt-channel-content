@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/MoreHoriz";
 import { IconButton, Menu as MenuComponent } from "@mui/material";
 
-export default function Menu({ children }) {
+export default function DropdownMenu({ children }) {
   const [anchorRef, setAnchorRef] = useState(null);
   const open = Boolean(anchorRef);
 

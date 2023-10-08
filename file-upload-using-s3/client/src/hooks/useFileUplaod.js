@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { getSignedUrl, uploadFileToSignedUrl } from "../api";
 
-function getKeyAndContentType(file, prefix = "images") {
+function getKeyAndContentType(file, prefix = "documents") {
   const [fileName, extension] = file.name.split(".");
 
   // to generate unique key everytime

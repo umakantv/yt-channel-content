@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Avatar from "@mui/material/Avatar";
 
-import useFileUpload from "../hooks/useFileUplaod";
-import Menu from "./Menu";
+import useFileUpload from "../../../hooks/useFileUplaod";
+import DropdownMenu from "../../Menu/Dropdown";
 import { CircularProgress, MenuItem } from "@mui/material";
 import "./edit_avatar.css";
 
-const EditAvatar = ({ inputId, image, onChange }) => {
-  const { uploadFile, uploadProgress, uploading } = useFileUpload(onChange);
+const EditAvatar = ({ inputId, image, name, onChange, prefix = "avatars" }) => {
+  const { uploadFile, uploadProgress, uploading } = useFileUpload(
+    onChange,
+    prefix
+  );
 
   console.log({ uploading, uploadProgress });
 
@@ -23,11 +26,7 @@ const EditAvatar = ({ inputId, image, onChange }) => {
     <div>
       <div className={`avatar-editor`}>
         <div className="preview">
-          <Avatar
-            alt="Remy Sharp"
-            src={image}
-            style={{ height: 100, width: 100 }}
-          />
+          <Avatar alt={name} src={image} style={{ height: 100, width: 100 }} />
           {uploading && (
             <div className="avatar-editor-overlay">
               <CircularProgress style={{ color: "white" }} />
@@ -45,7 +44,7 @@ const EditAvatar = ({ inputId, image, onChange }) => {
           className="edit-file-input"
         />
         <div className="edit-menu-button">
-          <Menu>
+          <DropdownMenu>
             <label htmlFor={inputId}>
               <MenuItem>Upload New</MenuItem>
             </label>
@@ -55,7 +54,7 @@ const EditAvatar = ({ inputId, image, onChange }) => {
               </a>
             )}
             <MenuItem onClick={() => onChange(null)}>Remove</MenuItem>
-          </Menu>
+          </DropdownMenu>
         </div>
       </div>
     </div>

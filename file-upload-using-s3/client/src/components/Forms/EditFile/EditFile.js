@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import LinkIcon from "@mui/icons-material/DocumentScannerOutlined";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import DeleteIcon from "@mui/icons-material/Delete";
-
-import useFileUpload from "../hooks/useFileUplaod";
 import {
   Card,
   CardContent,
@@ -13,6 +11,8 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
+
+import useFileUpload from "../../../hooks/useFileUplaod";
 import "./edit_file.css";
 
 function getFileName(link) {
@@ -21,8 +21,15 @@ function getFileName(link) {
   return link.split("/").pop();
 }
 
-const EditFile = ({ label, inputId, link, accept, onChange }) => {
-  const { uploadFile, uploading } = useFileUpload(onChange, "documents");
+const EditFile = ({
+  label,
+  inputId,
+  link,
+  accept,
+  onChange,
+  prefix = "documents",
+}) => {
+  const { uploadFile, uploading } = useFileUpload(onChange, prefix);
 
   const [file, setFile] = useState(null);
 
